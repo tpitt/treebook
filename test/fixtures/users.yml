@@ -3,3 +3,9 @@ tyson:
   last_name: "Pitt"
   email: "tysonpitt@gmail.com"
   profile_name: "tysonpitt"
+
+jim:
+  first_name: "Jim"
+  last_name: "Hoskins"
+  email: "jim@teamtreehouse.com"
+  profile_name: "jimhoskins"
