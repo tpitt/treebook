@@ -52,9 +52,9 @@ user = User.new(first_name: 'Tyson', last_name: 'Pitt', email: 'tysonpitt2@gmail
   end
 
   test "that creating friendships on a user works" do
-    users(:tyson).friends << users(:mike)
-    users(:tyson).friends.reload
-    assert users(:tyson).friends.include?(users(:mike))
+    users(:tyson).pending_friends << users(:mike)
+    users(:tyson).pending_friends.reload
+    assert users(:tyson).pending_friends.include?(users(:mike))
   end
 
   test "that calling to_param on a user returns the profile_name" do
