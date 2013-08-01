@@ -4,6 +4,12 @@ class UserTest < ActiveSupport::TestCase
 
   should have_many(:user_friendships)
   should have_many(:friends)
+  should have_many(:pending_user_friendships)
+  should have_many(:pending_friends)
+  should have_many(:requested_user_friendships)
+  should have_many(:requested_friends)
+  should have_many(:blocked_user_friendships)
+  should have_many(:blocked_friends)
 
   test "a user should enter a first name" do
   	user = User.new
@@ -61,5 +67,13 @@ user = User.new(first_name: 'Tyson', last_name: 'Pitt', email: 'tysonpitt2@gmail
     assert_equal "tysonpitt", users(:tyson).to_param
   end
 
+  context "#has_blocked?" do
+    should "return true if a user has blocked another user" do
+      assert users(:tyson).has_blocked?(users(:blocked_friend))
+    end
 
+    should "return false if a user has not blocked another user" do
+      assert !users(:tyson).has_blocked?(users(:jim))
+    end
+  end
 end
